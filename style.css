@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
+
+* 
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Oswald', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(11, 67, 170);
+}
+ul {
+    position: relative;
+    /* поворчаиваем текст */
+    transform: skewY(-15deg);
+    
+}
+
+ul li {
+    position: relative;
+    list-style: none;
+    padding: 15px;
+    background: rgb(36 75 91);
+    z-index: var(--i);
+    transition: 0.5s;
+}
+
+ul li:hover {
+    background: rgb(106, 27, 180);
+    /* выбор в какую сторону сдвигать блоки */
+    transform: translateX(-50px);
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 100%;
+    background: rgb(7, 44, 59);
+    top: 0;
+    left: -40px;
+    transform-origin: right;
+    transform: skewY(45deg);
+    transition: 0.5s;
+}
+
+ul li:hover::before { 
+    background: rgb(106, 27, 180);
+}
+
+ul li::after {
+    content: '';
+    position: absolute;
+    background: rgb(7, 44, 59);
+    width: 100%;
+    height: 40px;
+    top: -40px;
+    left: 0;
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    transition: 0.5s;
+}
+
+ul li:hover::after {
+    background: rgb(106, 27, 180);
+}
+
+ul li a {
+    text-decoration: none;
+    display: block;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: #999;
+    transition: 0.5s;
+}
+
+ul li:hover a {
+color: #fff;
+}
+
+ul li:last-child::after {
+    box-shadow: -130px 130px 20px rgb(0, 0, 0, 0.3);
+}
